@@ -9,19 +9,27 @@ def ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, t):
 
     Examples:
         >>> import numpy as np
-        >>> T, its, shape = ftcs_calor(300.0, 20.0, 98.8e-6, 0.3, 0.3, 50, 50, 1e-2, 60.0)
-        >>> print(its)
-        6001
-
+        >>> Tc = 300 # en ºC
+        >>> Tp = 20  # en ºC
+        >>> Lx = 0.3 # en m
+        >>> Ly = 0.3 # en m
+        >>> Nx = 100
+        >>> Ny = 100
+        >>> alpha = 98.8e-6 # en m^2/s
+        >>> dt = 1e-2
+        >>> N = 60
+        >>> valores, iteraciones, shape = ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, N)
+        >>> print(iteraciones)
+        601
 
     Args:
         Tp (float): Temperatura alta
         Tc (float): Temperatura baja
         Lx (float): Largo de la placa
         Ly (float): Ancho de la placa
-        Nx (float): Particiones a lo largo de la placa
+        Nx (int): Particiones a lo largo de la placa
         Ny (int): Particiones a lo ancho de la placa
-        alpha (int): Conductividad Térmica
+        alpha (float): Conductividad Térmica
         dt (float): Particiones temporales
         t (float): Tiempo final
 

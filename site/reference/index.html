@@ -361,7 +361,7 @@
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>Th</code></td>
+            <td><code>Tp</code></td>
             <td>
                   <code>float</code>
             </td>
@@ -389,21 +389,7 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>kappa</code></td>
-            <td>
-                  <code>float</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Conductividad Térmica</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>L</code></td>
+            <td><code>Lx</code></td>
             <td>
                   <code>float</code>
             </td>
@@ -417,7 +403,7 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>a</code></td>
+            <td><code>Ly</code></td>
             <td>
                   <code>float</code>
             </td>
@@ -431,9 +417,9 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>M</code></td>
+            <td><code>Nx</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -445,7 +431,7 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>N</code></td>
+            <td><code>Ny</code></td>
             <td>
                   <code>int</code>
             </td>
@@ -459,7 +445,21 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>h</code></td>
+            <td><code>alpha</code></td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Conductividad Térmica</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>dt</code></td>
             <td>
                   <code>float</code>
             </td>
@@ -473,7 +473,7 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>t_fin</code></td>
+            <td><code>t</code></td>
             <td>
                   <code>float</code>
             </td>
@@ -613,15 +613,15 @@
 
 
 <span class="sd">    Args:</span>
-<span class="sd">        Th (float): Temperatura alta</span>
+<span class="sd">        Tp (float): Temperatura alta</span>
 <span class="sd">        Tc (float): Temperatura baja</span>
-<span class="sd">        kappa (float): Conductividad Térmica</span>
-<span class="sd">        L (float): Largo de la placa</span>
-<span class="sd">        a (float): Ancho de la placa</span>
-<span class="sd">        M (int): Particiones a lo largo de la placa</span>
-<span class="sd">        N (int): Particiones a lo ancho de la placa</span>
-<span class="sd">        h (float): Particiones temporales</span>
-<span class="sd">        t_fin (float): Tiempo final</span>
+<span class="sd">        Lx (float): Largo de la placa</span>
+<span class="sd">        Ly (float): Ancho de la placa</span>
+<span class="sd">        Nx (float): Particiones a lo largo de la placa</span>
+<span class="sd">        Ny (int): Particiones a lo ancho de la placa</span>
+<span class="sd">        alpha (int): Conductividad Térmica</span>
+<span class="sd">        dt (float): Particiones temporales</span>
+<span class="sd">        t (float): Tiempo final</span>
 
 
 <span class="sd">    Returns:</span>
