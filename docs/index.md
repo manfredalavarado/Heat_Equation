@@ -9,7 +9,7 @@ Esta pagina contiene el proyecto de documentación para la función que resuelve
 ## Vista del Proyecto
 
 
-::: heat
+::: Heat
 
 
 ## Método Diferencias Finitas:
@@ -24,5 +24,7 @@ Una vez discretizado el dominio, se procede a la aproximar las derivadas parcial
 $$
 \\u_{i,j}^{n+1} = u_{i,j}^{n} + \alpha \frac{\Delta t}{\Delta x^2} (u_{i+1,j}^{n} - 2u_{i,j}^{n} + u_{i-1,j}^{n}) + \alpha \frac{\Delta t}{\Delta y^2} (u_{i,j+1}^{n} - 2u_{i,j}^{n} + u_{i,j-1}^{n})
 $$
+
+El calculo de la ecuación de calor mediante diferencias finitas ofrece ventajas como una mayor flexibilidad, una precisión ajustable y una capacidad para manejar variadas condiciones de frontera lo que le permite adaptarse a distintos tipos de problemas. Además, es un método que ofrece una alta eficiencia computacional, lo que lo hace fácil de implementar en variedad de condiciones.
 
 
