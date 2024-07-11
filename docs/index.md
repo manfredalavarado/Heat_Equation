@@ -1,6 +1,6 @@
 ##  Bienvenido a Heat Project Documentation
 
-Esta pagina contiene el proyecto de documentación para la función que resuelve la ecuación de calor: ftcs_calor.
+Esta pagina contiene el proyecto de documentación para la función que resuelve la ecuación de calor mediante Forward-Time Central-Space (FTCS).
 
 ##Tabla de Contenidos
 
