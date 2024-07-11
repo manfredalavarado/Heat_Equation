@@ -15,15 +15,15 @@ def ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, t):
 
 
     Args:
-        Th (float): Temperatura alta
+        Tp (float): Temperatura alta
         Tc (float): Temperatura baja
-        kappa (float): Conductividad Térmica
-        L (float): Largo de la placa
-        a (float): Ancho de la placa
-        M (int): Particiones a lo largo de la placa
-        N (int): Particiones a lo ancho de la placa
-        h (float): Particiones temporales
-        t_fin (float): Tiempo final
+        Lx (float): Largo de la placa
+        Ly (float): Ancho de la placa
+        Nx (float): Particiones a lo largo de la placa
+        Ny (int): Particiones a lo ancho de la placa
+        alpha (int): Conductividad Térmica
+        dt (float): Particiones temporales
+        t (float): Tiempo final
 
 
     Returns:
