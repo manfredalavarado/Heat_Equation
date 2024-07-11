@@ -28,3 +28,10 @@ $$
 El calculo de la ecuación de calor mediante diferencias finitas ofrece ventajas como una mayor flexibilidad, una precisión ajustable y una capacidad para manejar variadas condiciones de frontera lo que le permite adaptarse a distintos tipos de problemas. Además, es un método que ofrece una alta eficiencia computacional, lo que lo hace fácil de implementar en variedad de condiciones.
 
 
+
+#Participantes:
+	- René Bernardo Rivera Brenes (C26461)
+	- Anaité Chaves Ramírez (C12154)
+	- Kendall Alvarado Quesada (C20368)
+	- Joel Ignacio Moreno Calderón (C15292)
+	- Manfred Alvarado López (C10318)
