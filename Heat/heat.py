@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def ftcs_calor(Th, Tc, kappa, L, a, M, N, h, t_fin):
+def ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, t):
 
     """
     Método para resolver la ecuación de calor de manera numérica mediante diferencias finitas.
@@ -32,32 +32,40 @@ def ftcs_calor(Th, Tc, kappa, L, a, M, N, h, t_fin):
         shape (array): Guarda los distintos arreglos de la matriz T a lo largo del tiempo.
     """
 
+    #Para centrar la condición inicial
+    Pc_i = int(Nx * 0.5) - 1 # Inicio del punto caliente a la izquierda
+    Pc_d = int(Nx * 0.5) + 1 # Final del punto caliente a la derecha
+    Pc_u = int(Nx * 0.5) - 1 # Inicio del punto caliente arriba
+    Pc_d = int(Nx * 0.5) + 1 # Final del punto caliente abajo
 
-    # Condiciones iniciales
-    T = np.full((M+1, N+1), Tc, dtype=float)
-    T[24:27, 24:27] = Th
+    # Definición de las condiciones iniciales
+    u = np.full((Nx+1, Ny+1), Tp, dtype=float)
+    u[ Pc_i : Pc_d + 1, Pc_u : Pc_d +1] = Tc
 
-    #Los otros parametros
-    t = 0.0
-    dy= a / (N - 1)  #Particiones del ancho
-    dx = L / (M - 1)  #Partciones del largo
+    # Otros parametros
+    t0 = 0.0             # Tiempo inicial
+    dy= Ly / (Ny - 1)   # Particiones del ancho
+    dx = Lx / (Nx - 1)  # Partciones del largo
 
-    #Para la animacion
     its = 0
-    tsteps = int(t_fin / h)
-    shape = np.zeros((tsteps + 2, M+1, N+1), dtype=float)
+
+    #Para la animación
+    tsteps = int(t/dt)
+    shape = np.zeros((tsteps + 2, Nx+1, Ny+1), dtype=float)
 
     #Aqui se implementa el FTCS
-    while t < t_fin:
+    while t0 < t:
         #arreglo para hacer las operaciones con FTCS
-        Tk = T.copy()
-        for i in range(0, M):
-            for j in range(0, N):
-               if i < 24 or i > 26 or j < 24 or j > 26:
-                    Tk[i, j] = (((kappa*h)/(dy*dx)) * ((dy/dx) * (T[i-1, j] + T[i+1, j] - 2*T[i, j])) + ((kappa*h)/(dy*dx)) * ((dx/dy) * (T[i, j+1] + T[i, j-1] - 2*T[i, j])) + T[i, j])
+        u_c = u.copy()
+        for i in range(0, Nx):
+            for j in range(0, Ny):
+               if i < Pc_i or i > Pc_d or j < Pc_u or j > Pc_d:
+                    u_c[i, j] = (u[i, j] +
+                               alpha * dt / dx**2 * (u[i+1, j] - 2*u[i, j] + u[i-1, j]) +
+                               alpha * dt / dy**2 * (u[i, j+1] - 2*u[i, j] + u[i, j-1]))
 
-        T = Tk.copy()
-        t += h
+        u = u_c.copy()
+        t += dt
         its += 1
-        shape[its] = T.copy()
+        shape[its] = u.copy()
     return T, its, shape
