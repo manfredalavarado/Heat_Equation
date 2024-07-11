@@ -30,8 +30,8 @@ El calculo de la ecuación de calor mediante diferencias finitas ofrece ventajas
 
 
 #Participantes:
-	- René Bernardo Rivera Brenes (C26461)
-	- Anaité Chaves Ramírez (C12154)
-	- Kendall Alvarado Quesada (C20368)
-	- Joel Ignacio Moreno Calderón (C15292)
-	- Manfred Alvarado López (C10318)
+- René Bernardo Rivera Brenes (C26461)
+- Anaité Chaves Ramírez (C12154)
+- Kendall Alvarado Quesada (C20368)
+- Joel Ignacio Moreno Calderón (C15292)
+- Manfred Alvarado López (C10318)
