@@ -1,4 +1,4 @@
-#Heat_Project/heat.py
+#Heat_Equation/heat.py
 
 import numpy as np
 
