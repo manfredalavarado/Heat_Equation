@@ -354,13 +354,13 @@
 
   <h1>Indice</h1>
 
-<h2 id="bienvenido-a-heat-project-documentation">Bienvenido a Heat Project Documentation</h2>
+<h2 id="bienvenido-a-heat-project-documentation">Bienvenido a Heat Project Documentation<a class="headerlink" href="#bienvenido-a-heat-project-documentation" title="Permanent link">&para;</a></h2>
 <p>Esta pagina contiene el proyecto de documentación para la función que resuelve la ecuación de calor: ftcs_calor.</p>
-<h2 id="tabla-de-contenidos">Tabla de Contenidos</h2>
+<h2 id="tabla-de-contenidos">Tabla de Contenidos<a class="headerlink" href="#tabla-de-contenidos" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="reference/">Guía de Uso</a></li>
 </ol>
-<h2 id="vista-del-proyecto">Vista del Proyecto</h2>
+<h2 id="vista-del-proyecto">Vista del Proyecto<a class="headerlink" href="#vista-del-proyecto" title="Permanent link">&para;</a></h2>
 
 
 <div class="doc doc-object doc-module">
@@ -396,7 +396,7 @@
 
     </div>
 
-</div><h2 id="metodo-diferencias-finitas">Método Diferencias Finitas:</h2>
+</div><h2 id="metodo-diferencias-finitas">Método Diferencias Finitas:<a class="headerlink" href="#metodo-diferencias-finitas" title="Permanent link">&para;</a></h2>
 <p>Este método consiste en la discretización espacial y temporal del dominio para la aproximación de las derivadas parciales de los distintos nodos en la maya. Lo anterior permite transformar el problema de ecuaciones parciales a un sistema de ecuaciones que se pueda resolver de forma numérica.</p>
 <p>Para la discretización espacial del problema se debe tomar en cuenta que al ser bidimensional se debe dividir en una maya bidimensional <span class="arithmatex">\([ 0 , L_{x} ] *  [ 0 , L_{y} ]\)</span>. Se definen todos los nodos en los ejes x y y de manera que $x_{i} = i \Delta x $ donde <span class="arithmatex">\(\\Delta x = \frac{L_x}{N_x}\)</span> y de forma análoga $ y_{n} = n \Delta y$ donde <span class="arithmatex">\(\\Delta y = \frac{L_{y}{N_{y}\)</span>. Para la discretización temporal se tiene un intervalo de tiempo <span class="arithmatex">\([ 0 , T ]\)</span> que se divide en M subdivisiones y definimos el salto temporal como <span class="arithmatex">\(h = \frac{T}{M}\)</span>.</p>
 <p>Una vez discretizado el dominio, se procede a la aproximar las derivadas parciales para estas ser evaluadas en un tiempo t. La idea es crear un sistema numérico explícito con el que poder calcular la temperatura que tendrá un punto en la grilla después de que pase un tiempo h a partir de la temperatura de los cuatro nodos vecinos. Aproximando las derivadas y evaluandolas en el tiempo se obtiene la expresión:</p>
