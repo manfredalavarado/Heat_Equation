@@ -18,6 +18,7 @@ def ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, t):
         >>> alpha = 98.8e-6 # en m^2/s
         >>> dt = 1e-2
         >>> N = 60
+        
         >>> valores, iteraciones, shape = ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, N)
         >>> print(iteraciones)
         601
