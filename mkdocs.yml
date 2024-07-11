@@ -1,6 +1,5 @@
 # mkdocs.yml
 site_name: Proyecto Ecuación del Calor
-remote_branch: main
 
 theme:
   name: "material"
