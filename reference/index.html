@@ -343,9 +343,18 @@
 
 <p><span class="doc-section-title">Examples:</span></p>
     <div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">T</span><span class="p">,</span> <span class="n">its</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">ftcs_calor</span><span class="p">(</span><span class="mf">300.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">98.8e-6</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">its</span><span class="p">)</span>
-<span class="go">6001</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Tc</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># en ºC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Tp</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># en ºC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Lx</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># en m</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ly</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># en m</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Nx</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ny</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">98.8e-6</span> <span class="c1"># en m^2/s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">valores</span><span class="p">,</span> <span class="n">iteraciones</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">)</span>
+<span class="go">601</span>
 </code></pre></div>
 
 
@@ -419,7 +428,7 @@
           <tr class="doc-section-item">
             <td><code>Nx</code></td>
             <td>
-                  <code>float</code>
+                  <code>int</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -447,7 +456,7 @@
           <tr class="doc-section-item">
             <td><code>alpha</code></td>
             <td>
-                  <code>int</code>
+                  <code>float</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -600,26 +609,42 @@
 <span class="normal">68</span>
 <span class="normal">69</span>
 <span class="normal">70</span>
-<span class="normal">71</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Método para resolver la ecuación de calor de manera numérica mediante diferencias finitas.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; T, its, shape = ftcs_calor(300.0, 20.0, 98.8e-6, 0.3, 0.3, 50, 50, 1e-2, 60.0)</span>
-<span class="sd">        &gt;&gt;&gt; print(its)</span>
-<span class="sd">        6001</span>
-
+<span class="sd">        &gt;&gt;&gt; Tc = 300 # en ºC</span>
+<span class="sd">        &gt;&gt;&gt; Tp = 20  # en ºC</span>
+<span class="sd">        &gt;&gt;&gt; Lx = 0.3 # en m</span>
+<span class="sd">        &gt;&gt;&gt; Ly = 0.3 # en m</span>
+<span class="sd">        &gt;&gt;&gt; Nx = 100</span>
+<span class="sd">        &gt;&gt;&gt; Ny = 100</span>
+<span class="sd">        &gt;&gt;&gt; alpha = 98.8e-6 # en m^2/s</span>
+<span class="sd">        &gt;&gt;&gt; dt = 1e-2</span>
+<span class="sd">        &gt;&gt;&gt; N = 60</span>
+<span class="sd">        &gt;&gt;&gt; valores, iteraciones, shape = ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, N)</span>
+<span class="sd">        &gt;&gt;&gt; print(iteraciones)</span>
+<span class="sd">        601</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Tp (float): Temperatura alta</span>
 <span class="sd">        Tc (float): Temperatura baja</span>
 <span class="sd">        Lx (float): Largo de la placa</span>
 <span class="sd">        Ly (float): Ancho de la placa</span>
-<span class="sd">        Nx (float): Particiones a lo largo de la placa</span>
+<span class="sd">        Nx (int): Particiones a lo largo de la placa</span>
 <span class="sd">        Ny (int): Particiones a lo ancho de la placa</span>
-<span class="sd">        alpha (int): Conductividad Térmica</span>
+<span class="sd">        alpha (float): Conductividad Térmica</span>
 <span class="sd">        dt (float): Particiones temporales</span>
 <span class="sd">        t (float): Tiempo final</span>
 
