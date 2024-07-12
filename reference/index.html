@@ -331,7 +331,7 @@
 
 
 <h2 id="Heat.heat.ftcs_calor" class="doc doc-heading">
-            <code class=" language-python"><span class="n">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span></code>
+            <code class=" language-python"><span class="n">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span></code>
 
 <a href="#Heat.heat.ftcs_calor" class="headerlink" title="Permanent link">&para;</a></h2>
 
@@ -347,13 +347,12 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Tp</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># en ºC</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Lx</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># en m</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Ly</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1"># en m</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Nx</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Ny</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">98.8e-6</span> <span class="c1"># en m^2/s</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="mi">60</span>
 </code></pre></div>
-    <div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">valores</span><span class="p">,</span> <span class="n">iteraciones</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">valores</span><span class="p">,</span> <span class="n">iteraciones</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">)</span>
 <span class="go">601</span>
 </code></pre></div>
@@ -427,27 +426,13 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>Nx</code></td>
+            <td><code>N</code></td>
             <td>
                   <code>int</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Particiones a lo largo de la placa</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td><code>Ny</code></td>
-            <td>
-                  <code>int</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Particiones a lo ancho de la placa</p>
+                <p>Número de particiones de los lados de la placa</p>
               </div>
             </td>
             <td>
@@ -617,9 +602,7 @@
 <span class="normal">75</span>
 <span class="normal">76</span>
 <span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="normal">78</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ftcs_calor</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">Tc</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Método para resolver la ecuación de calor de manera numérica mediante diferencias finitas.</span>
@@ -630,13 +613,12 @@
 <span class="sd">        &gt;&gt;&gt; Tp = 20  # en ºC</span>
 <span class="sd">        &gt;&gt;&gt; Lx = 0.3 # en m</span>
 <span class="sd">        &gt;&gt;&gt; Ly = 0.3 # en m</span>
-<span class="sd">        &gt;&gt;&gt; Nx = 100</span>
-<span class="sd">        &gt;&gt;&gt; Ny = 100</span>
+<span class="sd">        &gt;&gt;&gt; N = 100</span>
 <span class="sd">        &gt;&gt;&gt; alpha = 98.8e-6 # en m^2/s</span>
 <span class="sd">        &gt;&gt;&gt; dt = 1e-2</span>
-<span class="sd">        &gt;&gt;&gt; N = 60</span>
+<span class="sd">        &gt;&gt;&gt; t = 60</span>
 
-<span class="sd">        &gt;&gt;&gt; valores, iteraciones, shape = ftcs_calor(Tp, Tc, Lx, Ly, Nx, Ny, alpha, dt, N)</span>
+<span class="sd">        &gt;&gt;&gt; valores, iteraciones, shape = ftcs_calor(Tp, Tc, Lx, Ly, N, alpha, dt, t)</span>
 <span class="sd">        &gt;&gt;&gt; print(iteraciones)</span>
 <span class="sd">        601</span>
 
@@ -645,8 +627,7 @@
 <span class="sd">        Tc (float): Temperatura baja</span>
 <span class="sd">        Lx (float): Largo de la placa</span>
 <span class="sd">        Ly (float): Ancho de la placa</span>
-<span class="sd">        Nx (int): Particiones a lo largo de la placa</span>
-<span class="sd">        Ny (int): Particiones a lo ancho de la placa</span>
+<span class="sd">        N (int): Número de particiones de los lados de la placa</span>
 <span class="sd">        alpha (float): Conductividad Térmica</span>
 <span class="sd">        dt (float): Particiones temporales</span>
 <span class="sd">        t (float): Tiempo final</span>
@@ -659,19 +640,19 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1">#Para centrar la condición inicial</span>
-    <span class="n">Pc_i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Nx</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># Inicio del punto caliente a la izquierda</span>
-    <span class="n">Pc_d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Nx</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Final del punto caliente a la derecha</span>
-    <span class="n">Pc_u</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Nx</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># Inicio del punto caliente arriba</span>
-    <span class="n">Pc_d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Nx</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Final del punto caliente abajo</span>
+    <span class="n">Pc_i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># Inicio del punto caliente a la izquierda</span>
+    <span class="n">Pc_d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Final del punto caliente a la derecha</span>
+    <span class="n">Pc_u</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># Inicio del punto caliente arriba</span>
+    <span class="n">Pc_d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># Final del punto caliente abajo</span>
 
     <span class="c1"># Definición de las condiciones iniciales</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">Nx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ny</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">Tp</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">u</span><span class="p">[</span> <span class="n">Pc_i</span> <span class="p">:</span> <span class="n">Pc_d</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Pc_u</span> <span class="p">:</span> <span class="n">Pc_d</span> <span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Tc</span>
 
     <span class="c1"># Otros parametros</span>
     <span class="n">t0</span> <span class="o">=</span> <span class="mf">0.0</span>             <span class="c1"># Tiempo inicial</span>
-    <span class="n">dy</span><span class="o">=</span> <span class="n">Ly</span> <span class="o">/</span> <span class="p">(</span><span class="n">Ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># Particiones del ancho</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span> <span class="o">/</span> <span class="p">(</span><span class="n">Nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Partciones del largo</span>
+    <span class="n">dy</span><span class="o">=</span> <span class="n">Ly</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># Particiones del ancho</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">Lx</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Partciones del largo</span>
 
     <span class="n">its</span> <span class="o">=</span> <span class="mi">0</span>
 
@@ -683,15 +664,15 @@
     <span class="k">while</span> <span class="n">t0</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">:</span>
         <span class="c1">#arreglo para hacer las operaciones con FTCS</span>
         <span class="n">u_c</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Nx</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ny</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
                <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Pc_i</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">Pc_d</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">Pc_u</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">Pc_d</span><span class="p">:</span>
                     <span class="n">u_c</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span>
                                <span class="n">alpha</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="o">+</span>
                                <span class="n">alpha</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
         <span class="n">u</span> <span class="o">=</span> <span class="n">u_c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+        <span class="n">t0</span> <span class="o">+=</span> <span class="n">dt</span>
         <span class="n">its</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">shape</span><span class="p">[</span><span class="n">its</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">T</span><span class="p">,</span> <span class="n">its</span><span class="p">,</span> <span class="n">shape</span>
